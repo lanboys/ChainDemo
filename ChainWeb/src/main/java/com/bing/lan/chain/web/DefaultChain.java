@@ -3,7 +3,7 @@ package com.bing.lan.chain.web;
 import com.bing.lan.chain.web.adapter.RequestWrapper;
 import com.bing.lan.chain.web.adapter.ResponseWrapper;
 import com.bing.lan.chain.web.adapter.WebFilter;
-import com.bing.lan.chain.web.adapter.WebFilterChain;
+import com.bing.lan.chain.web.adapter.WebChain;
 
 import java.io.IOException;
 
@@ -14,11 +14,11 @@ import javax.servlet.ServletException;
  * Created by 蓝兵 on 2019/7/5.
  */
 
-public class DelegatingChainProxy extends WebFilterChain {
+public class DefaultChain extends WebChain {
 
     private int index = 0;
 
-    public DelegatingChainProxy(String s, FilterChain originChain) {
+    public DefaultChain(String s, FilterChain originChain) {
         super(s, originChain);
     }
 

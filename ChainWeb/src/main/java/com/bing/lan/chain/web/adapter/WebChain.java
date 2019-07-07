@@ -1,6 +1,6 @@
 package com.bing.lan.chain.web.adapter;
 
-import com.bing.lan.chain.core.base.AbstractFilterChain;
+import com.bing.lan.chain.core.base.AbstractChain;
 import com.bing.lan.chain.core.base.Request;
 import com.bing.lan.chain.core.base.Response;
 
@@ -13,11 +13,11 @@ import javax.servlet.ServletException;
  * Created by 蓝兵 on 2019/7/5.
  */
 
-public abstract class WebFilterChain extends AbstractFilterChain {
+public abstract class WebChain extends AbstractChain {
 
     protected FilterChain originChain;
 
-    public WebFilterChain(String name, FilterChain originChain) {
+    public WebChain(String name, FilterChain originChain) {
         super(name);
         this.originChain = originChain;
     }

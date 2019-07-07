@@ -3,7 +3,7 @@ package com.bing.lan.chain.web.filter;
 import com.bing.lan.chain.web.adapter.RequestWrapper;
 import com.bing.lan.chain.web.adapter.ResponseWrapper;
 import com.bing.lan.chain.web.adapter.WebFilter;
-import com.bing.lan.chain.web.adapter.WebFilterChain;
+import com.bing.lan.chain.web.adapter.WebChain;
 
 /**
  * Created by 蓝兵 on 2019/7/7.
@@ -12,7 +12,7 @@ import com.bing.lan.chain.web.adapter.WebFilterChain;
 public class AdviceFilter extends WebFilter {
 
     public final void doWebFilter(RequestWrapper requestWrapper, ResponseWrapper responseWrapper,
-            WebFilterChain webFilterChain) throws Exception {
+            WebChain webFilterChain) throws Exception {
         Exception exception = null;
         try {
             boolean continueChain = preHandle(requestWrapper, responseWrapper);

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  * Created by 蓝兵 on 2019/7/5.
  */
 @WebFilter(urlPatterns = "/*", initParams = {@WebInitParam(name = "characterEncoding", value = "UTF-8")})
-public class DelegatingFilterProxy implements Filter {
+public class DefaultFilter implements Filter {
 
     FilterConfig filterConfig;
 
@@ -37,9 +37,9 @@ public class DelegatingFilterProxy implements Filter {
         response.setCharacterEncoding(filterConfig.getInitParameter("characterEncoding"));
         response.setContentType("text/html");
 
-        DelegatingChainProxy delegatingChainProxy = new DelegatingChainProxy("web-filter-chain", chain);
+        DefaultChain defaultChain = new DefaultChain("web-filter-chain", chain);
 
-        delegatingChainProxy.doFilter(new RequestWrapper("request", request),
+        defaultChain.doFilter(new RequestWrapper("request", request),
                 new ResponseWrapper("response", response));
     }
 

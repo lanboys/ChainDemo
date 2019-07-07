@@ -1,6 +1,6 @@
 package com.bing.lan.chain.core.simple;
 
-import com.bing.lan.chain.core.base.AbstractFilterChain;
+import com.bing.lan.chain.core.base.AbstractChain;
 import com.bing.lan.chain.core.base.Request;
 import com.bing.lan.chain.core.base.Response;
 
@@ -8,7 +8,7 @@ import com.bing.lan.chain.core.base.Response;
  * Created by 蓝兵 on 2019/7/5.
  */
 
-public class SimpleFilterChain extends AbstractFilterChain {
+public class SimpleFilterChain extends AbstractChain {
 
     private int index = 0;
 
