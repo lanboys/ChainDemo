@@ -22,7 +22,7 @@ public abstract class WebFilterChain extends AbstractFilterChain {
         this.originChain = originChain;
     }
 
-    public void doFilter(Request request, Response response) throws IOException, ServletException {
+    public final void doFilter(Request request, Response response) throws IOException, ServletException {
         doWebFilter((RequestWrapper) request, (ResponseWrapper) response);
     }
 

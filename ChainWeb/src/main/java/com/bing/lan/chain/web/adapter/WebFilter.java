@@ -11,7 +11,7 @@ import com.bing.lan.chain.core.base.Response;
 
 public abstract class WebFilter extends AbstractFilter {
 
-    public void doFilter(Request request, Response response, FilterChain chain) throws Exception {
+    public final void doFilter(Request request, Response response, FilterChain chain) throws Exception {
         doWebFilter((RequestWrapper) request, (ResponseWrapper) response, (WebFilterChain) chain);
     }
 

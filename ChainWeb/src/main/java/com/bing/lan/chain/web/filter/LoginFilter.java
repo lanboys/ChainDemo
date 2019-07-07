@@ -2,9 +2,8 @@ package com.bing.lan.chain.web.filter;
 
 import com.bing.lan.chain.web.adapter.RequestWrapper;
 import com.bing.lan.chain.web.adapter.ResponseWrapper;
-import com.bing.lan.chain.web.adapter.WebFilter;
-import com.bing.lan.chain.web.adapter.WebFilterChain;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletResponse;
@@ -14,20 +13,18 @@ import javax.servlet.http.HttpServletRequest;
  * Created by 蓝兵 on 2019/7/7.
  */
 
-public class LoginFilter extends WebFilter {
+public class LoginFilter extends AccessControlFilter {
 
-    public void doWebFilter(RequestWrapper requestWrapper, ResponseWrapper responseWrapper,
-            WebFilterChain webFilterChain) throws Exception {
+    protected boolean isAccessAllowed(RequestWrapper requestWrapper, ResponseWrapper response, String path) {
+        return isLogin((HttpServletRequest) requestWrapper.getOriginRequest());
+    }
 
-        if (isLogin((HttpServletRequest) requestWrapper.getOriginRequest())) {
-            webFilterChain.doFilter(requestWrapper, responseWrapper);
-        } else {
-            ServletResponse originResponse = responseWrapper.getOriginResponse();
-            System.out.println("doFilter(): 未登录被拦截");
-            PrintWriter writer = originResponse.getWriter();
-            writer.print("请先登录");
-        }
-        System.out.println("doFilter(): after " + getName());
+    protected boolean onAccessDenied(RequestWrapper requestWrapper, ResponseWrapper responseWrapper, String path) throws IOException {
+        ServletResponse originResponse = responseWrapper.getOriginResponse();
+        System.out.println("doFilter(): 未登录被拦截");
+        PrintWriter writer = originResponse.getWriter();
+        writer.print("请先登录");
+        return false;
     }
 
     private boolean isLogin(HttpServletRequest request) {

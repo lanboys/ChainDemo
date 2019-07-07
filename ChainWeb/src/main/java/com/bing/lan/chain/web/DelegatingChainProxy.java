@@ -33,11 +33,12 @@ public class DelegatingChainProxy extends WebFilterChain {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else {
-            System.out.println("doFilter(): filter chain finish");
 
-            originChain.doFilter(requestWrapper.getOriginRequest(),
-                    responseWrapper.getOriginResponse());
+            return;
         }
+
+        System.out.println("doFilter(): filter chain finish");
+        originChain.doFilter(requestWrapper.getOriginRequest(),
+                responseWrapper.getOriginResponse());
     }
 }
