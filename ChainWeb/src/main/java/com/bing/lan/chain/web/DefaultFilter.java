@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by 蓝兵 on 2019/7/5.
+ * <p>
+ * http://shiro.apache.org/static/1.4.1/apidocs/
  */
 @WebFilter(urlPatterns = "/*", initParams = {@WebInitParam(name = "characterEncoding", value = "UTF-8")})
 public class DefaultFilter implements Filter {
