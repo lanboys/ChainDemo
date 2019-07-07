@@ -5,9 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.bing.lan</groupId>
-    <artifactId>chain</artifactId>
+    <artifactId>chain-parent</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
+
+    <modules>
+        <module>ChainCore</module>
+        <module>ChainWeb</module>
+    </modules>
 
     <dependencies>
         <dependency>
@@ -17,19 +23,22 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.0.11</version>
-        </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <artifactId>chain-core</artifactId>
+                <groupId>com.bing.lan</groupId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <artifactId>chain-web</artifactId>
+                <groupId>com.bing.lan</groupId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 
 </project>
