@@ -10,5 +10,5 @@ public interface Filter extends Nameable, Orderable {
 
     public void init(Config filterConfig);
 
-    public void doFilter(Request request, Response response, FilterChain chain);
+    public void doFilter(Request request, Response response, FilterChain chain) throws Exception;
 }

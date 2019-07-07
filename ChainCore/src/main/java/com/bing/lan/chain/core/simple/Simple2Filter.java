@@ -11,7 +11,7 @@ import com.bing.lan.chain.core.base.Response;
 
 public class Simple2Filter extends AbstractFilter {
 
-    public void doFilter(Request request, Response response, FilterChain chain) {
+    public void doFilter(Request request, Response response, FilterChain chain) throws Exception {
 
         System.out.println("doFilter(): before " + getName());
 

@@ -6,5 +6,5 @@ package com.bing.lan.chain.core.base;
 
 public interface FilterChain extends Nameable {
 
-    public void doFilter(Request request, Response response);
+    public void doFilter(Request request, Response response) throws Exception;
 }

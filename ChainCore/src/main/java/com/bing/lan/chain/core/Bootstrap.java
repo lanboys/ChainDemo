@@ -10,7 +10,7 @@ import com.bing.lan.chain.core.simple.SimpleResponse;
 
 public class Bootstrap {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         for (int i = 0; i < 1; i++) {
             SimpleFilterChain chain = new SimpleFilterChain("[filterChain-" + i + "]");

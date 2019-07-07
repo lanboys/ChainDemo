@@ -16,7 +16,7 @@ public class SimpleFilterChain extends AbstractFilterChain {
         super(name);
     }
 
-    public void doFilter(Request request, Response response) {
+    public void doFilter(Request request, Response response) throws Exception {
         if (index < filters.size()) {
             index++;
             filters.get(index - 1).doFilter(request, response, this);
